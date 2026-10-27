@@ -700,6 +700,34 @@ function addShelf(item) {
     });
 }
 
+// ---------- Senarai klasifikasi rak untuk aras semasa ----------
+function renderClassification(floorKey) {
+    const list = document.getElementById('classList');
+    const title = document.getElementById('classTitle');
+    const data = floorsData[floorKey];
+    if (!list || !data) return;
+
+    const numbers = new Set();
+    let hasNovel = false;
+
+    data.shelves.forEach(sh => {
+        if (sh.decor) return; // rak hiasan tiada nombor
+        [sh.number, sh.back].forEach(n => {
+            if (!n) return;
+            if (String(n).startsWith('NOVEL')) hasNovel = true;
+            else numbers.add(n);
+        });
+    });
+
+    const items = [...numbers].sort().map(n =>
+        `<span><strong>${n}</strong> ${categoryNames[n] || 'Special Collection'}</span>`
+    );
+    if (hasNovel) items.push('<span><strong>Novel</strong> Sorted A–Z by author code</span>');
+
+    list.innerHTML = items.join('');
+    if (title) title.textContent = `Shelf Classification – ${data.name}`;
+}
+
 function buildFloor(floorKey) {
     try {
         while (activeFloorGroup.children.length > 0) {
@@ -728,6 +756,7 @@ function buildFloor(floorKey) {
 
         const floorTitle = document.getElementById('currentFloorTitle');
         if (floorTitle) floorTitle.textContent = `3D Layout - ${data.name}`;
+        renderClassification(floorKey);
     } catch (err) {
         console.error("Floor Build Error:", err);
     } finally {
@@ -1023,7 +1052,7 @@ function stopWalk(fly = true) {
         controls.target.copy(walk.look);
         flyTo(route.overview.cam, route.overview.target);
     }
-    if (povBtn) povBtn.textContent = '🚶 Mod POV';
+    if (povBtn) povBtn.textContent = '🚶 Guide Mode';
 }
 
 function startWalk() {
@@ -1037,7 +1066,7 @@ function startWalk() {
     camera.updateProjectionMatrix();
     const a = sampleRoute(2.5);
     walk.look.set(a.x, 1.4, a.z);
-    if (povBtn) povBtn.textContent = '⏹ Keluar POV';
+    if (povBtn) povBtn.textContent = '⏹ Exit Guide Mode';
 }
 
 function clearRoute() {
@@ -1224,7 +1253,7 @@ function resolveCallNumber(raw) {
     return { key: cat, label: cat, name: categoryNames[cat] || 'Koleksi Khas', kind: 'dewey' };
 }
 
-// Banner peringatan di bawah kad keputusan
+// Banner peringatan di bawah kad keputusan carian 
 function setReminder(text) {
     let box = document.getElementById('orderReminder');
     if (!box) {
@@ -1338,7 +1367,7 @@ if (resetBtn) {
     povBtn.type = 'button';
     povBtn.id = 'povButton';
     povBtn.className = resetBtn.className;
-    povBtn.textContent = '🚶 Mod POV';
+    povBtn.textContent = '🚶 Guide Mode';
     povBtn.disabled = true;
     povBtn.style.opacity = '0.5';
     povBtn.style.marginRight = '8px';
