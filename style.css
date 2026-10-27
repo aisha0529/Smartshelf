@@ -1,4 +1,9 @@
 
+
+/* =========================================
+   SMARTSHELF - DARK GREY THEME
+   ========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +11,17 @@
 }
 
 :root {
-    --primary: #24594f;
-    --primary-dark: #173e37;
-    --accent: #d9a65a;
-    --background: #f4f6f3;
-    --white: #ffffff;
-    --text: #263b36;
-    --muted: #7b8984;
-    --border: #e2e9e5;
+    --primary: #4B5563;
+    --primary-dark: #25282D;
+    --accent: #D6B36A;
+    --background: #E8E9EB;
+    --white: #FFFFFF;
+    --text: #25282D;
+    --muted: #737982;
+    --border: #D1D5DB;
 }
 
+/* BODY */
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: var(--background);
@@ -23,6 +29,7 @@ body {
     line-height: 1.6;
 }
 
+/* HEADER */
 .header {
     min-height: 85px;
     background: var(--primary-dark);
@@ -56,12 +63,12 @@ body {
 }
 
 .brand p {
-    color: #c5d8d1;
+    color: #C5C9CF;
     font-size: 12px;
 }
 
 .staff-badge {
-    border: 1px solid #7d9d92;
+    border: 1px solid #737982;
     padding: 7px 13px;
     border-radius: 6px;
     font-size: 11px;
@@ -69,12 +76,14 @@ body {
     letter-spacing: 1px;
 }
 
+/* MAIN CONTAINER */
 .container {
     width: min(1100px, 90%);
     margin: 0 auto;
     padding: 35px 0;
 }
 
+/* WELCOME */
 .welcome {
     margin-bottom: 25px;
 }
@@ -98,6 +107,7 @@ body {
     font-size: 14px;
 }
 
+/* CARDS */
 .search-card,
 .result-card,
 .map-card,
@@ -107,9 +117,10 @@ body {
     border-radius: 14px;
     padding: 25px;
     margin-bottom: 22px;
-    box-shadow: 0 5px 20px rgba(28, 57, 46, 0.035);
+    box-shadow: 0 5px 20px rgba(37, 40, 45, 0.05);
 }
 
+/* SEARCH */
 .search-card label {
     display: block;
     font-weight: bold;
@@ -126,7 +137,7 @@ body {
     flex: 1;
     min-width: 0;
     padding: 14px 15px;
-    border: 1px solid #d7e0db;
+    border: 1px solid #C9CDD3;
     border-radius: 8px;
     font-size: 15px;
     outline: none;
@@ -134,7 +145,7 @@ body {
 
 .search-row input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(36, 89, 79, 0.1);
+    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.15);
 }
 
 button {
@@ -144,16 +155,17 @@ button {
 
 .search-row button {
     border: none;
-    background: var(--primary);
-    color: white;
+    background: var(--primary-dark);
+    color: var(--white);
     padding: 0 23px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 .search-row button:hover {
-    background: var(--primary-dark);
+    background: #41464F;
 }
 
 .hint {
@@ -162,6 +174,7 @@ button {
     font-size: 12px;
 }
 
+/* SEARCH RESULT */
 .result-card {
     display: flex;
     justify-content: space-between;
@@ -185,13 +198,14 @@ button {
     height: 70px;
     display: grid;
     place-items: center;
-    background: #f9edda;
-    color: #79521c;
+    background: #F3EBDD;
+    color: #80652F;
     border-radius: 12px;
     font-size: 21px;
     font-weight: bold;
 }
 
+/* MAP HEADING */
 .map-heading {
     display: flex;
     justify-content: space-between;
@@ -212,8 +226,8 @@ button {
 
 .map-status {
     white-space: nowrap;
-    background: #eaf4ef;
-    color: var(--primary);
+    background: #E5E7EB;
+    color: var(--primary-dark);
     border-radius: 20px;
     padding: 7px 11px;
     font-size: 11px;
@@ -224,18 +238,19 @@ button {
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: #45a77e;
+    background: #737B86;
     border-radius: 50%;
     margin-right: 5px;
 }
 
+/* 3D LIBRARY MAP */
 .library-3d {
     width: 100%;
     height: 480px;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    background: #e8efeb;
+    background: #DDE0E4;
     border: 1px solid var(--border);
 }
 
@@ -246,17 +261,22 @@ button {
     outline: none;
 }
 
+/* LOADING */
 .loading-message {
     position: absolute;
     inset: 0;
-    display: grid;
-    place-items: center;
-    color: var(--primary);
-    font-size: 14px;
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(232, 233, 235, 0.88);
+    color: var(--primary-dark);
+    font-size: 15px;
+    font-weight: bold;
+    z-index: 10;
     pointer-events: none;
 }
 
+/* MAP CONTROLS */
 .map-controls {
     display: flex;
     justify-content: space-between;
@@ -270,16 +290,19 @@ button {
 
 .map-controls button {
     border: 1px solid var(--border);
-    background: white;
+    background: var(--white);
     color: var(--text);
     padding: 8px 13px;
     border-radius: 7px;
+    transition: 0.2s;
 }
 
 .map-controls button:hover {
-    background: var(--background);
+    background: #E5E7EB;
+    border-color: var(--primary);
 }
 
+/* LEGEND */
 .legend {
     display: flex;
     flex-wrap: wrap;
@@ -305,13 +328,14 @@ button {
 }
 
 .legend-normal {
-    background: #668c7d;
+    background: #737B86;
 }
 
 .legend-target {
-    background: #f0ae49;
+    background: var(--accent);
 }
 
+/* GUIDE CARD */
 .guide-card h3 {
     font-size: 19px;
     margin-bottom: 5px;
@@ -323,6 +347,7 @@ button {
     margin-bottom: 17px;
 }
 
+/* CATEGORY LIST */
 .category-list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -330,14 +355,47 @@ button {
 }
 
 .category-list span {
-    background: #f3f7f4;
-    border: 1px solid #e5ece7;
+    background: #F1F2F4;
+    border: 1px solid #D9DCE1;
     padding: 12px;
     border-radius: 7px;
     font-size: 12px;
     font-weight: bold;
 }
 
+/* FLOOR SELECTOR */
+.floor-selector {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.floor-btn {
+    padding: 9px 20px;
+    border: 2px solid var(--primary);
+    background-color: var(--white);
+    color: var(--primary-dark);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: all 0.2s ease-in-out;
+}
+
+.floor-btn:hover {
+    background-color: #E5E7EB;
+}
+
+.floor-btn.active {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border-color: var(--primary-dark);
+    box-shadow: 0 4px 12px rgba(37, 40, 45, 0.25);
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 23px 15px;
@@ -346,13 +404,19 @@ footer {
     font-size: 12px;
 }
 
+/* HIDDEN ELEMENTS */
 [hidden] {
     display: none !important;
 }
 
+/* RESPONSIVE */
 @media (max-width: 650px) {
     .header {
         padding: 15px 5%;
+    }
+
+    .brand h1 {
+        font-size: 19px;
     }
 
     .staff-badge {
@@ -392,53 +456,4 @@ footer {
         align-items: flex-start;
         flex-direction: column;
     }
-}
-/* =====================================================================
-   SMARTSHELF - Multi-Floor Selector & Loading Fix
-   ===================================================================== */
-
-/* Pembaikan Paparan Mesej Loading */
-.loading-message {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(232, 239, 235, 0.85); /* Latar belakang lembut semasa loading */
-    color: var(--primary);
-    font-size: 15px;
-    font-weight: bold;
-    z-index: 10;
-    pointer-events: none;
-}
-
-/* Butang Penukar Aras (Floor Selector) */
-.floor-selector {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-}
-
-.floor-btn {
-    padding: 9px 20px;
-    border: 2px solid var(--primary);
-    background-color: var(--white);
-    color: var(--primary);
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 13px;
-    transition: all 0.2s ease-in-out;
-}
-
-.floor-btn:hover {
-    background-color: #eaf4ef;
-}
-
-.floor-btn.active {
-    background-color: var(--primary);
-    color: var(--white);
-    box-shadow: 0 4px 12px rgba(36, 89, 79, 0.25);
 }
