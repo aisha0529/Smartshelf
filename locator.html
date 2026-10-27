@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartShelf | 3D Multi-Floor Library Locator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <!-- Klik logo untuk kembali ke laman utama -->
+        <a href="index.html" class="brand" style="color: inherit; text-decoration: none;">
+            <div class="brand-icon">📚</div>
+            <div>
+                <h1>SmartShelf</h1>
+                <p>3D Multi-Floor Library Call Number Locator</p>
+            </div>
+        </a>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">LIBRARY ASSISTANCE SYSTEM</p>
+            <h2>Find the Right Shelf Across Floors</h2>
+            <p>
+                Enter or scan a book call number to identify its classification,
+                floor location, and target shelf in the library.
+            </p>
+        </section>
+
+        <section class="search-card">
+            <label for="callNumber">Book Call Number</label>
+            <div class="search-row">
+                <input
+                    type="text"
+                    id="callNumber"
+                    placeholder="Example: J 812.23 (Aras G), 812.23 (Aras 1), R 812.23 (Aras 2)"
+                >
+                <button id="searchButton" type="button">
+                    Find Shelf
+                </button>
+            </div>
+            <p class="hint">
+                Tip: Prefix 'J' goes to Aras G (Kanak-Kanak), 'R'/'REF' goes to Aras 2 (Rujukan), numbers only go to Aras 1 (Dewasa).
+            </p>
+        </section>
+
+        <section id="resultCard" class="result-card" hidden>
+            <div>
+                <p class="eyebrow" id="resultFloorTag">SEARCH RESULT</p>
+                <h3 id="resultTitle">Shelf 800</h3>
+                <p id="resultDescription"></p>
+            </div>
+            <span id="resultNumber" class="result-number">800</span>
+        </section>
+
+        <section class="map-card">
+            <div class="map-heading">
+                <div>
+                    <p class="eyebrow">INTERACTIVE MAP</p>
+                    <h2 id="currentFloorTitle">3D Layout - Aras 1 (Dewasa)</h2>
+                    <p>Explore the shelves on the selected floor.</p>
+                </div>
+                <span class="map-status">
+                    <span class="status-dot"></span>
+                    3D VIEW
+                </span>
+            </div>
+
+            <!-- BUTANG PENUKAR ARAS (Penting untuk Script Baru) -->
+            <div class="floor-selector">
+                <button type="button" class="floor-btn" data-floor="G">Aras G (Kanak-Kanak)</button>
+                <button type="button" class="floor-btn active" data-floor="1">Aras 1 (Dewasa)</button>
+                <button type="button" class="floor-btn" data-floor="2">Aras 2 (Rujukan)</button>
+            </div>
+
+            <div id="library3D" class="library-3d">
+                <div id="loadingMessage" class="loading-message">
+                    Preparing 3D library...
+                </div>
+            </div>
+
+            <div class="map-controls">
+                <span>🖱️ Drag to rotate · Scroll to zoom</span>
+                <button id="resetView" type="button">Reset View</button>
+            </div>
+
+            <div class="legend">
+                <span><i class="legend-normal"></i> Other shelves</span>
+                <span><i class="legend-target"></i> Selected shelf</span>
+            </div>
+        </section>
+
+        <section class="guide-card">
+    <h3 id="classTitle">Shelf Classification</h3>
+    <p>What each shelf number holds on the selected floor.</p>
+    <div id="classList" class="category-list"></div>
+</section>
+
+    </main>
+
+    <footer>
+        <p>SmartShelf © 2026 | Library Staff Assistance System</p>
+    </footer>
+
+    <!-- Import map THREE.js MESTI di atas script module -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
