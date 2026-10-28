@@ -5,11 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartShelf | 3D Multi-Floor Library Locator</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- CSS tmbhn untuk susun header -->
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between; /*tolak logo ke kanan */
+            align-items: center; /* Selaraskan menegak */
+            padding: 15px 20px;
+          
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right-logo img {
+            height: 65px; /* adjust saiz logo PERPUSTAM  */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Responsif untuk skrin kecil (telefon) */
+        @media (max-width: 768px) {
+            .header-right-logo img {
+                height: 45px;
+            }
+            .brand h1 {
+                font-size: 1.2rem;
+            }
+            .brand p {
+                display: none; 
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header class="header">
-        <!-- Klik logo untuk kembali ke laman utama -->
+        <!-- Bahagian Kiri: Logo SmartShelf & Teks -->
         <a href="index.html" class="brand" style="color: inherit; text-decoration: none;">
             <div class="brand-icon">📚</div>
             <div>
@@ -17,6 +54,11 @@
                 <p>3D Multi-Floor Library Call Number Locator</p>
             </div>
         </a>
+
+        <!-- Bahagian Kanan: Logo PERPUSTAM -->
+        <div class="header-right-logo">
+            <img src="perpustam-logo.png" alt="Logo PERPUSTAM">
+        </div>
     </header>
 
     <main class="container">
@@ -36,15 +78,12 @@
                 <input
                     type="text"
                     id="callNumber"
-                    placeholder="Example: J 812.23 (Aras G), 812.23 (Aras 1), R 812.23 (Aras 2)"
+                    placeholder="Example: 812.23"
                 >
                 <button id="searchButton" type="button">
                     Find Shelf
                 </button>
             </div>
-            <p class="hint">
-                Tip: Prefix 'J' goes to Aras G (Kanak-Kanak), 'R'/'REF' goes to Aras 2 (Rujukan), numbers only go to Aras 1 (Dewasa).
-            </p>
         </section>
 
         <section id="resultCard" class="result-card" hidden>
@@ -94,15 +133,15 @@
         </section>
 
         <section class="guide-card">
-    <h3 id="classTitle">Shelf Classification</h3>
-    <p>What each shelf number holds on the selected floor.</p>
-    <div id="classList" class="category-list"></div>
-</section>
+            <h3 id="classTitle">Shelf Classification</h3>
+            <p>What each shelf number holds on the selected floor.</p>
+            <div id="classList" class="category-list"></div>
+        </section>
 
     </main>
 
     <footer>
-        <p>SmartShelf © 2026 | Library Assistance System</p>
+        <p>SmartShelf © 2026 | Perpustam Assistance System</p>
     </footer>
 
     <!-- Import map THREE.js MESTI di atas script module -->
