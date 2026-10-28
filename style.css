@@ -1,7 +1,5 @@
-
-
 /* =========================================
-   SMARTSHELF - DARK GREY THEME
+   SMARTSHELF - BLUE-GREY THEME (#545A63)
    ========================================= */
 
 * {
@@ -11,14 +9,17 @@
 }
 
 :root {
-    --primary: #4B5563;
-    --primary-dark: #25282D;
+    --primary: #000000;
+    --primary-dark: #545A63;
     --accent: #D6B36A;
-    --background: #E8E9EB;
+    --background: #ECEDEF;
     --white: #FFFFFF;
-    --text: #25282D;
-    --muted: #737982;
-    --border: #D1D5DB;
+    --text: #2A2D32;
+    --muted: #000000;
+    --border: #D4D7DC;
+
+    /* TUKAR NAMA FAIL GAMBAR LATAR DI SINI */
+    --bg-image: url('perpustam-bg.png');
 }
 
 /* BODY */
@@ -27,6 +28,18 @@ body {
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
+    position: relative;
+}
+
+/* GAMBAR LATAR PERPUSTAKAAN */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(rgba(236, 237, 239, 0.45), rgba(236, 237, 239, 0.45)),
+        var(--bg-image) center / cover no-repeat;
 }
 
 /* HEADER */
@@ -50,7 +63,7 @@ body {
 .brand-icon {
     width: 48px;
     height: 48px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.14);
     border-radius: 12px;
     display: grid;
     place-items: center;
@@ -63,12 +76,12 @@ body {
 }
 
 .brand p {
-    color: #C5C9CF;
+    color: #D3D6DB;
     font-size: 12px;
 }
 
 .staff-badge {
-    border: 1px solid #737982;
+    border: 1px solid #8E949D;
     padding: 7px 13px;
     border-radius: 6px;
     font-size: 11px;
@@ -117,7 +130,7 @@ body {
     border-radius: 14px;
     padding: 25px;
     margin-bottom: 22px;
-    box-shadow: 0 5px 20px rgba(37, 40, 45, 0.05);
+    box-shadow: 0 5px 20px rgba(84, 90, 99, 0.08);
 }
 
 /* SEARCH */
@@ -144,8 +157,8 @@ body {
 }
 
 .search-row input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(75, 85, 99, 0.15);
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(84, 90, 99, 0.18);
 }
 
 button {
@@ -165,7 +178,7 @@ button {
 }
 
 .search-row button:hover {
-    background: #41464F;
+    background: #454A52;
 }
 
 .hint {
@@ -226,7 +239,7 @@ button {
 
 .map-status {
     white-space: nowrap;
-    background: #E5E7EB;
+    background: #E3E5E8;
     color: var(--primary-dark);
     border-radius: 20px;
     padding: 7px 11px;
@@ -238,7 +251,7 @@ button {
     display: inline-block;
     width: 7px;
     height: 7px;
-    background: #737B86;
+    background: #8E949D;
     border-radius: 50%;
     margin-right: 5px;
 }
@@ -250,7 +263,7 @@ button {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    background: #DDE0E4;
+    background: #DEE1E5;
     border: 1px solid var(--border);
 }
 
@@ -268,7 +281,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(232, 233, 235, 0.88);
+    background: rgba(236, 237, 239, 0.88);
     color: var(--primary-dark);
     font-size: 15px;
     font-weight: bold;
@@ -298,8 +311,8 @@ button {
 }
 
 .map-controls button:hover {
-    background: #E5E7EB;
-    border-color: var(--primary);
+    background: #E3E5E8;
+    border-color: var(--primary-dark);
 }
 
 /* LEGEND */
@@ -328,14 +341,14 @@ button {
 }
 
 .legend-normal {
-    background: #737B86;
+    background: #8E949D;
 }
 
 .legend-target {
     background: var(--accent);
 }
 
-/* GUIDE CARD */
+/* GUIDE / SHELF CLASSIFICATION CARD */
 .guide-card h3 {
     font-size: 19px;
     margin-bottom: 5px;
@@ -374,7 +387,7 @@ button {
 
 .floor-btn {
     padding: 9px 20px;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--primary-dark);
     background-color: var(--white);
     color: var(--primary-dark);
     border-radius: 20px;
@@ -385,14 +398,14 @@ button {
 }
 
 .floor-btn:hover {
-    background-color: #E5E7EB;
+    background-color: #E3E5E8;
 }
 
 .floor-btn.active {
     background-color: var(--primary-dark);
     color: var(--white);
     border-color: var(--primary-dark);
-    box-shadow: 0 4px 12px rgba(37, 40, 45, 0.25);
+    box-shadow: 0 4px 12px rgba(84, 90, 99, 0.3);
 }
 
 /* FOOTER */
