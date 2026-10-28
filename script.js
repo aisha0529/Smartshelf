@@ -415,7 +415,7 @@ const floorsData = {
 
             // ---- Anak tangga: 3 anak tangga panjang, makin tinggi ke barat (ke dewan) ----
             const stairEast = X1(383), stairW = X1(383) - X1(360);
-            const stairZ0 = Z1(279), stairZ1 = Z1(406);
+            const stairZ0 = Z1(279), stairZ1 = Z1(418);
             const stepW = stairW / 3;
             for (let k = 0; k < 3; k++) {
                 const h = (HALL_H / 4) * (k + 1);
@@ -423,14 +423,12 @@ const floorsData = {
                                     (stairZ0 + stairZ1) / 2, 0xa8a8a8, { noShadow: true });
                 step.userData.noNav = true;
             }
-            createLabelSprite('ANAK TANGGA', 2.2, 0.82, '#555555', 28).position.set(X1(371.5), 1.6, Z1(345));
 
             // ---- Lereng: baji condong naik ke barat, bersambung dengan lantai dewan ----
             const rampLen = X1(403) - X1(357);
             const ramp = addBox(rampLen, 0.08, Z1(279) - Z1(246), X1(380), HALL_H / 2 - 0.04, Z1(262.5), 0xb8b8b8, { noShadow: true });
             ramp.rotation.z = -Math.atan(HALL_H / rampLen);
             ramp.userData.noNav = true;
-            createLabelSprite('LERENG', 1.6, 0.6, '#555555', 34).position.set(X1(380), 1.4, Z1(262.5));
             addBox(13.7, 0.02, 14.4, X1(681.5), 0.011, Z1(393.5), 0xf4f1ea, { noShadow: true });   // bilik bacaan
 
             // ---- Label bilik ----
