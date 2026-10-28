@@ -7,18 +7,18 @@
 }
 
 :root {
-    --dark: #25282D;
-    --grey: #4B5563;
+    --dark: #545A63;
+    --grey: #7A808A;
     --gold: #D6B36A;
-    --background: #E8E9EB;
+    --background: #ECEDEF;
     --cycle: 7s; /* tempoh satu pusingan animasi */
 }
 
 body {
     min-height: 100vh;
     min-height: 100dvh;
-    background: radial-gradient(circle at 50% 40%, #F3F4F6 0, var(--background) 62%);
-    color: var(--dark);
+    background: radial-gradient(circle at 50% 40%, #F6F7F8 0, var(--background) 62%);
+    color: #2A2D32;
     font-family: 'Space Grotesk', Arial, sans-serif;
 }
 
@@ -79,9 +79,9 @@ a {
     height: 44px;
     display: grid;
     place-items: center;
-    border: 2px solid #9CA3AF;
+    border: 2px solid #B4B8BF;
     border-radius: 12px;
-    color: #9CA3AF;
+    color: #B4B8BF;
     font-size: 18px;
     font-weight: 700;
 }
@@ -96,7 +96,7 @@ a {
     padding: 28px 28px 14px;
     background: var(--dark);
     border-radius: 26px;
-    box-shadow: 0 30px 70px rgba(37, 40, 45, 0.28);
+    box-shadow: 0 30px 70px rgba(84, 90, 99, 0.32);
 }
 
 .rows {
@@ -110,7 +110,7 @@ a {
     gap: 4px;
     padding: 0 4px;
     margin-bottom: 18px;
-    border-bottom: 6px solid #4B5563;
+    border-bottom: 6px solid #8E949D;
 }
 
 .row i {
@@ -119,18 +119,18 @@ a {
     min-width: 0;
     height: 80%;
     border-radius: 3px 3px 0 0;
-    background: #6B7280;
+    background: #8E949D;
 }
 
-.row i:nth-child(2n)   { background: #4B5563; height: 70%; }
-.row i:nth-child(3n)   { background: #9CA3AF; height: 90%; }
-.row i:nth-child(4n)   { background: #374151; height: 76%; }
-.row i:nth-child(5n)   { background: #8B7355; height: 96%; }
+.row i:nth-child(2n)   { background: #B4B8BF; height: 70%; }
+.row i:nth-child(3n)   { background: #D5D8DD; height: 90%; }
+.row i:nth-child(4n)   { background: #6F757F; height: 76%; }
+.row i:nth-child(5n)   { background: #A8896B; height: 96%; }
 .row i:nth-child(7n)   { height: 64%; }
 
 /* Buku yang dicari */
 .row i.target {
-    background: #8B7355;
+    background: #A8896B;
     height: 88%;
     animation: pop var(--cycle) ease-in-out infinite;
 }
@@ -183,7 +183,7 @@ h1 {
     border-radius: 18px;
     font-size: 24px;
     font-weight: 700;
-    box-shadow: 0 14px 34px rgba(37, 40, 45, 0.28);
+    box-shadow: 0 14px 34px rgba(84, 90, 99, 0.32);
     transition: transform 0.15s ease, background 0.15s ease;
 }
 
@@ -193,7 +193,7 @@ h1 {
 }
 
 .start-btn:hover {
-    background: #41464F;
+    background: #454A52;
 }
 
 .start-btn:active {
@@ -203,9 +203,9 @@ h1 {
 /* KEYFRAMES (satu pusingan = mula pilih aras, imbas rak, buku timbul) */
 
 @keyframes floorOn {
-    0%, 5%   { background: transparent; color: #9CA3AF; border-color: #9CA3AF; }
+    0%, 5%   { background: transparent; color: #B4B8BF; border-color: #B4B8BF; }
     10%, 92% { background: var(--dark); color: var(--gold); border-color: var(--dark); }
-    98%, 100% { background: transparent; color: #9CA3AF; border-color: #9CA3AF; }
+    98%, 100% { background: transparent; color: #B4B8BF; border-color: #B4B8BF; }
 }
 
 @keyframes scan {
@@ -216,9 +216,9 @@ h1 {
 }
 
 @keyframes pop {
-    0%, 56%  { transform: translateY(0); background: #8B7355; box-shadow: none; }
+    0%, 56%  { transform: translateY(0); background: #A8896B; box-shadow: none; }
     62%, 92% { transform: translateY(-16px); background: var(--gold); box-shadow: 0 0 22px 4px rgba(214, 179, 106, 0.75); }
-    98%, 100% { transform: translateY(0); background: #8B7355; box-shadow: none; }
+    98%, 100% { transform: translateY(0); background: #A8896B; box-shadow: none; }
 }
 
 @keyframes pin {
